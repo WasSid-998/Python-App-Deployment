@@ -16,6 +16,10 @@ ALB routes traffic to EKS Pods running the Python application.
 The application communicates with RDS (database) located in a private subnet.
 Response is returned back to the user.
 
+
+
+
+
 Infrastructure Design
 
 AWS Components Used:
@@ -33,6 +37,10 @@ RDS Database → Private Subnets
 ALB (Ingress Controller) → Public Subnet
 All components are interconnected securely inside the VPC
 Only controlled external access is allowed via CloudFront + ALB
+
+
+
+
 
 Project Folder Structure
 
@@ -94,6 +102,8 @@ myproject/
 
 
 
+
+
 CI/CD Pipeline Workflow (Jenkins)
 Jenkins is hosted on a public EC2 instance inside the same VPC
 Access restricted using specific IP rules defined in dev/main.tf
@@ -106,6 +116,9 @@ Push image to registry
 Deploy to Dev environment
 If successful → Move to Preprod (QA) (Approval required)
 If approved → Move to Prod (Approval required)
+
+
+
 
 Multi-Environment Strategy
 
@@ -121,6 +134,12 @@ Separate Terraform configurations
 Separate state management
 Independent infrastructure
 Controlled promotion flow
+
+
+
+
+
+
 
 Deployment Steps
 Step 1: Bootstrap Infrastructure (State Management)
@@ -192,6 +211,9 @@ kubectl apply -k k8s/overlays/preprod
 aws eks update-kubeconfig --region us-east-1 --name pythonapp-prod
 kubectl apply -k k8s/overlays/prod
 
+
+
+KeyFeatures
 Production-Grade Features Implemented
 High Availability
 EKS ensures auto-recovery of failed pods
