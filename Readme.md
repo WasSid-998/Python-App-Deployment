@@ -36,6 +36,7 @@ Only controlled external access is allowed via CloudFront + ALB
 
 Project Folder Structure
 
+```text
 myproject/
 ├── app/
 │   ├── app.py
@@ -51,11 +52,9 @@ myproject/
 │   │   ├── dev/
 │   │   │   ├── main.tf
 │   │   │   └── terraform.tfvars
-│   │   │
 │   │   ├── preprod/
 │   │   │   ├── main.tf
 │   │   │   └── terraform.tfvars
-│   │   │
 │   │   └── prod/
 │   │       ├── main.tf
 │   │       └── terraform.tfvars
@@ -85,14 +84,14 @@ myproject/
 │           ├── dev/
 │           │   ├── ingress.yaml
 │           │   └── kustomization.yaml
-│           │
 │           ├── preprod/
 │           │   ├── ingress.yaml
 │           │   └── kustomization.yaml
-│           │
 │           └── prod/
 │               ├── ingress.yaml
 │               └── kustomization.yaml
+```
+
 
 
 CI/CD Pipeline Workflow (Jenkins)
