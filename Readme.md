@@ -140,18 +140,19 @@ Controlled promotion flow
 
 
 ---
-Deployment Steps
-Step 1: Bootstrap Infrastructure (State Management)
-
-cd terraform/bootstrap
-terraform init
-terraform plan
-terraform apply
-
-Creates:
-S3 Bucket (Terraform state storage)
-DynamoDB Table (State locking)
+Deployment Steps  
 ---
+Step 1: Bootstrap Infrastructure (State Management)  
+---
+cd terraform/bootstrap  
+terraform init  
+terraform plan  
+terraform apply  
+
+Creates:  
+S3 Bucket (Terraform state storage)  
+DynamoDB Table (State locking)  
+
 Step 2: Deploy Dev Environment
 
 cd terraform/envs/dev
