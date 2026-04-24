@@ -37,7 +37,6 @@ Only controlled external access is allowed via CloudFront + ALB
 Project Folder Structure
 
 myproject/
-│
 ├── app/
 │   ├── app.py
 │   └── Dockerfile
@@ -94,8 +93,6 @@ myproject/
 │           └── prod/
 │               ├── ingress.yaml
 │               └── kustomization.yaml
-
-
 
 
 CI/CD Pipeline Workflow (Jenkins)
