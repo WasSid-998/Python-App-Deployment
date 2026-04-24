@@ -35,6 +35,7 @@ All components are interconnected securely inside the VPC
 Only controlled external access is allowed via CloudFront + ALB
 
 Project Folder Structure
+
 myproject/
 │
 ├── app/
@@ -51,21 +52,30 @@ myproject/
 │   │   ├── dev/
 │   │   │   ├── main.tf
 │   │   │   └── terraform.tfvars
+│   │   │
 │   │   ├── preprod/
 │   │   │   ├── main.tf
 │   │   │   └── terraform.tfvars
+│   │   │
 │   │   └── prod/
 │   │       ├── main.tf
 │   │       └── terraform.tfvars
 │   │
 │   ├── modules/
 │   │   ├── vpc/
+│   │   │   └── main.tf
 │   │   ├── eks/
+│   │   │   └── main.tf
 │   │   ├── rds/
+│   │   │   └── main.tf
 │   │   ├── cloudfront/
+│   │   │   └── main.tf
 │   │   ├── cloudwatch/
+│   │   │   └── main.tf
 │   │   ├── iam/
+│   │   │   └── main.tf
 │   │   └── jenkins/
+│   │       └── main.tf
 │   │
 │   └── k8s/
 │       ├── base/
@@ -76,12 +86,15 @@ myproject/
 │           ├── dev/
 │           │   ├── ingress.yaml
 │           │   └── kustomization.yaml
+│           │
 │           ├── preprod/
 │           │   ├── ingress.yaml
 │           │   └── kustomization.yaml
+│           │
 │           └── prod/
 │               ├── ingress.yaml
 │               └── kustomization.yaml
+
 
 
 
