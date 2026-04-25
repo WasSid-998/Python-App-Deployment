@@ -293,6 +293,8 @@ Security
 S3 state locked using DynamoDB  
 Private subnets for EKS & RDS  
 Controlled Jenkins access via IP restriction  
+
+
 ---
 Observability  
 ---
