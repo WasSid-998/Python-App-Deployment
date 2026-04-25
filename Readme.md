@@ -164,13 +164,16 @@ terraform apply
 Creates:  
 S3 Bucket (Terraform state storage)  
 DynamoDB Table (State locking)  
+
 ---
 Step 2: Deploy Dev Environment  
 ---
+
 cd terraform/envs/dev  
 terraform init  
 terraform plan -var-file="terraform.tfvars"  
 terraform apply -var-file="terraform.tfvars"  
+
 ---
 Step 3: Deploy Preprod & Prod  
 ---
@@ -183,12 +186,15 @@ cd terraform/envs/prod
 terraform init  
 terraform plan -var-file="terraform.tfvars"  
 terraform apply -var-file="terraform.tfvars"  
+
 ---
 Step 4: Configure kubectl Access  
 ---
+
 aws eks update-kubeconfig --region us-east-1 --name pythonapp-dev  
 aws eks update-kubeconfig --region us-east-1 --name pythonapp-preprod  
 aws eks update-kubeconfig --region us-east-1 --name pythonapp-prod  
+
 ---
 Step 5: Install AWS Load Balancer Controller  
 ---
@@ -202,6 +208,7 @@ for CLUSTER in pythonapp-dev pythonapp-preprod pythonapp-prod; do
     -n kube-system \
     --set clusterName=$CLUSTER
 done  
+
 ---
 Step 6: HPA metrics deployment  
 ---
@@ -211,6 +218,7 @@ for CLUSTER in myapp-dev myapp-preprod myapp-prod; do
 done  
 
 kubectl get deployment metrics-server -n kube-system
+
 ---
 Step 7: Deploy Kubernetes Manifests  
 ---
