@@ -223,6 +223,60 @@ kubectl apply -k k8s/overlays/preprod
 aws eks update-kubeconfig --region us-east-1 --name pythonapp-prod  
 kubectl apply -k k8s/overlays/prod  
 
+----
+Jenkins Setup  
+---
+
+Prerequisites  
+- Jenkins installed (EC2/local)  
+- Java 17  
+- Docker installed  
+- AWS CLI configured  
+- kubectl installed  
+
+
+Required Plugins  
+
+Install via **Manage Jenkins → Plugins**:  
+
+- Git Plugin  
+- GitHub Plugin  
+- Pipeline Plugin  
+- Docker Pipeline Plugin  
+- Credentials Binding Plugin  
+- AWS Credentials Plugin  
+- Kubernetes CLI Plugin  
+- Blue Ocean (optional)  
+
+
+
+Credentials Configuration  
+
+Add credentials in **Manage Jenkins → Credentials**:  
+
+| Type              | ID             | Description            |
+|------------------|----------------|------------------------|
+| GitHub Token     | `github-creds` | Access repository      |
+| AWS Credentials  | `aws-creds`    | Access ECR & EKS       |
+
+
+GitHub Webhook Setup  
+
+1. Go to your GitHub repository  
+2. Navigate to: **Settings → Webhooks → Add Webhook**  
+
+3. Configure:  
+   - **Payload URL:**  
+     ```
+     http://<jenkins-public-ip>:8080/github-webhook/  
+     ```
+   - **Content Type:** `application/json`  
+   - **Trigger:** Just the push event   
+
+
+Jenkins Pipeline Configuration  
+
+1. Create a **Pipeline Job**  
 
 ---
 KeyFeatures  
